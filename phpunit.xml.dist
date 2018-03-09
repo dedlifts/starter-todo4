@@ -12,10 +12,10 @@
     syntaxCheck="false"
     cacheTokens="true"
     verbose="false"
-    bootstrap="tests/Bootstrap.php">
+    bootstrap="test/Bootstrap.php">
     <testsuites>
         <testsuite name="CITools Test Suite">
-            <directory>./tests/</directory>
+            <directory>./test/application</directory>
         </testsuite>
     </testsuites>
     <filter>
