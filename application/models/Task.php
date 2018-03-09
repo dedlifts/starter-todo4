@@ -7,54 +7,54 @@
  */
 
 class Task extends Entity {
-    public $task;
-    public $priority;
-    public $size;
-    public $group;
-    public $statuses;
-    public $flags;
+    private $task;
+    private $priority;
+    private $size;
+    private $group;
+    private $statuses;
+    private $flags;
     
     public function __get($key) {
         return $this->$key;
     }
 
-    function setPriority($priority) {
+    public function setPriority($priority) {
         if ($priority > 3 || $priority < 1) {
             throw new InvalidArgumentException('Priority not within range.');
         }
         $this->priority = $priority;
-        return $this->priority;
+        return $this;
     }
 
-    function setSize($size) {
+    public function setSize($size) {
         if ($size > 3 || $size < 1) {
             throw new InvalidArgumentException('Size not within range.');
         }
         $this->size = $size;
-        return $this->size;
+        return $this;
     }
 
-    function setGroup($group) {
+    public function setGroup($group) {
         if ($group > 4 || $group < 1) {
             throw new InvalidArgumentException('Group not within range.');
         }
         $this->group = $group;
-        return $this->group;
+        return $this;
     }
     
-    function setStatuses($statuses) {
+    public function setStatuses($statuses) {
         if ($statuses > 2 || $statuses < 1) {
             throw new InvalidArgumentException('Status not within range.');
         }
         $this->statuses = $statuses;
-        return $this->statuses;
+        return $this;
     }
     
-    function setFlags($flags) {
+    public function setFlags($flags) {
         if ($flags != 1) {
             throw new InvalidArgumentException('Flag not within range.');
         }
         $this->flags = $flags;
-        return $this->flags;
+        return $this;
     }
 }
