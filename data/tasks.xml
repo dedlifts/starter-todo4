@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 
 <tasks>
-    <task id="1" priority="2" size="2" group="2" deadline="20170219" status="2" flag="Update the TODO task">COMP1234 assignment</task>
+    <task id="1" priority="2" size="2" group="2" deadline="20170219" status="2" flag="">COMP1234 assignment</task>
     <task id="2" priority="2" size="2" group="1" deadline="" status="2" flag="">Mow the lawn</task>
     <task id="3" priority="2" size="2" group="1" deadline="" status="2" flag="">Wash the car</task>
     <task id="4" priority="1" size="2" group="1" deadline="" status="" flag="">Paint the fence</task>
