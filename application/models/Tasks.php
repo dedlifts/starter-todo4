@@ -15,22 +15,45 @@ class Tasks extends XML_Model {
     protected function load() {
         if (($tasks = simplexml_load_file($this->_origin)) !== FALSE) {
             foreach ($tasks as $task) {
-                $record = new stdClass();
-                $record->id = (int) $task['id'];
-                $record->task = (string) $task;
+                $record           =  new stdClass();
+                $record->id       = (int) $task['id'];
+                $record->task     = (string) $task;
                 $record->priority = (int) $task['priority'];
-                $record->size = (int) $task['size'];
-                $record->group = (int) $task['group'];
+                $record->size     = (int) $task['size'];
+                $record->group    = (int) $task['group'];
                 $record->deadline = (string) $task['deadline'];
-                $record->status = (int) $task['status'];
-                $record->flag = (int) $task['flag'];
+                $record->status   = (int) $task['status'];
+                $record->flag     = (int) $task['flag'];
 
                 $this->_data[$record->id] = $record;
             }
         }
+		$this->reindex();
     }
     
-
+	protected function store()
+	{
+		if (($handle = fopen($this->_origin, "w")) !== FALSE)
+		{
+		$xmlDoc = new DOMDocument("1.0");
+        $xmlDoc->preserveWhiteSpace = false;
+        $xmlDoc->formatOutput = true;
+        $data = $xmlDoc->createElement($this->xml->getName());
+        foreach($this->_data as $key => $value)
+        {
+            $task  = $xmlDoc->createElement($this->xml->children()->getName());
+            foreach ($value as $itemkey => $record ) {
+                $item = $xmlDoc->createElement($itemkey, htmlspecialchars($record));
+                $task->appendChild($item);
+                }
+                $data->appendChild($task);
+            }
+            $xmlDoc->appendChild($data);
+            $xmlDoc->saveXML($xmlDoc);
+            $xmlDoc->save($this->_origin);
+		}
+	}
+	
     function getCategorizedTasks()
     {
         // extract the undone tasks
