@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<tasks>
+    <task id="1" priority="2" size="2" group="2" deadline="20170219" status="2" flag="">COMP1234 assignment</task>
+    <task id="2" priority="2" size="2" group="1" deadline="" status="2" flag="">Mow the lawn</task>
+    <task id="3" priority="2" size="2" group="1" deadline="" status="2" flag="">Wash the car</task>
+    <task id="4" priority="1" size="2" group="1" deadline="" status="" flag="">Paint the fence</task>
+    <task id="5" priority="1" size="2" group="4" deadline="" status="" flag="">Intramural hockey game</task>
+    <task id="6" priority="3" size="3" group="4" deadline="20170305" status="2" flag="">Canucks hockey game</task>
+</tasks>
